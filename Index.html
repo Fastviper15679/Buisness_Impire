@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Business Empire Tycoon&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="icon" href="https://emojiapi.dev/api/v1/money_bag/64.png"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; background:#f4f4f4; text-align:center; padding:20px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { margin-bottom:6px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cash { font-size:22px; margin:8px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.coins { font-size:14px; opacity:.8; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section{display:none;} .active{display:block;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{background:#fff;border-radius:10px;padding:14px;margin:10px auto;width:460px;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>box-shadow:0 2px 5px rgba(0,0,0,.1);} .flash{background:#eaffea!important;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button{padding:8px 14px;margin:5px;font-size:14px;cursor:pointer;border-radius:8px;</p>
+<p class="p1"><span class="Apple-converted-space">           </span>border:1px solid #ccc;background:#fff;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:disabled{background:#eee;color:#777;cursor:not-allowed;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#dollar{font-size:80px;margin:10px;cursor:pointer;user-select:none;transition:transform .1s;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#dollar:active{transform:scale(1.2);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.icons span{font-size:28px;margin:0 2px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav{margin:10px 0 14px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top-right{position:absolute;top:10px;right:10px;font-size:18px;font-weight:bold;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top-left{position:absolute;top:10px;left:10px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top-left button{font-size:16px;font-weight:bold;padding:6px 10px;background:#e53935;color:#fff;</p>
+<p class="p1"><span class="Apple-converted-space">                     </span>border:none;border-radius:6px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.top-left button:hover{background:#c62828;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.progress-container{width:420px;margin:12px auto;background:#ddd;border-radius:10px;overflow:hidden;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.progress-bar{height:20px;background:#2e7d32;width:0%;color:white;font-size:12px;line-height:20px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#boostDollar{position:absolute;font-size:50px;cursor:pointer;display:none;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>animation:pulse 1s infinite;text-shadow:0 0 5px gold,0 0 10px orange,0 0 15px yellow;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.3);}100%{transform:scale(1);}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#boostStatus{position:fixed;top:50px;left:50%;transform:translateX(-50%);background:gold;padding:10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">                 </span>border-radius:10px;font-weight:bold;display:none;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>canvas{margin-top:8px;background:#fafafa;border:1px solid #ddd;border-radius:6px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.shop-grid{display:grid;grid-template-columns:1fr;gap:10px;justify-items:center;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.shop-item h4{margin:6px 0;} .tiny{font-size:12px;opacity:.85;}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;💼 Business Empire 💼&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="cash"&gt;Cash: $&lt;span id="cash"&gt;0&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="coins"&gt;Prestige Coins: 🪙 &lt;span id="coins"&gt;0&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="top-left"&gt;&lt;button onclick="resetGame()"&gt;🔄 Reset&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="top-right"&gt;Buy Amount:</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="buyAmount" onchange="updateDisplay()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;option value="1"&gt;1&lt;/option&gt;&lt;option value="10"&gt;10&lt;/option&gt;&lt;option value="100"&gt;100&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/select&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="showSection('main')"&gt;🏠 Main&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="showSection('managers')"&gt;👔 Managers&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="showSection('stocks')"&gt;📈 Stocks&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="showSection('shop')"&gt;🏪 Prestige Shop&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="showSection('prestige')"&gt;⭐ Prestige&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="main" class="section active"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="dollar" onclick="clickDollar()"&gt;💵&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Click Value: $&lt;span id="clickValue"&gt;1&lt;/span&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="upgradeClick()"&gt;Upgrade Click ($&lt;span id="clickUpgradeCost"&gt;20&lt;/span&gt;)&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Businesses&lt;/h2&gt;&lt;div id="businesses"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="managers" class="section"&gt;&lt;h2&gt;Managers&lt;/h2&gt;&lt;div id="managersList"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="stocks" class="section"&gt;&lt;h2&gt;Stock Market&lt;/h2&gt;&lt;div id="stocksList"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="shop" class="section"&gt;&lt;h2&gt;Prestige Shop (Spend 🪙)&lt;/h2&gt;&lt;div class="shop-grid" id="shopList"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="prestige" class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Prestige&lt;/h2&gt;&lt;div class="progress-container"&gt;&lt;div id="prestigeBar" class="progress-bar"&gt;0%&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Permanent Bonus: &lt;b&gt;&lt;span id="prestigeBonus"&gt;0&lt;/span&gt;%&lt;/b&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="prestige()"&gt;Prestige Now&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="boostDollar" onclick="activateBoost()"&gt;💲&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="boostStatus"&gt;Boost Active!&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* ==== GAME LOGIC ==== */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let cash=0, clickValue=1, clickUpgradeCost=20;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let prestigePercent=0, prestigeCoins=0, prestigeMultiplier=1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let boostActive=false, boostType=null, boostEndTime=0, boostInterval=null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let shop={globalIncomeLevel:0,clickBonusLevel:0,costReductionLevel:0,stockDrift:false};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function recomputePrestigeMultiplier(){prestigeMultiplier=1+(prestigePercent/100);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function globalIncomeMultiplier(){return Math.pow(1.1,shop.globalIncomeLevel);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function costDiscountFactor(){return Math.pow(0.95,shop.costReductionLevel);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let businesses=[</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🍋 Lemonade Stand",baseCost:12,baseIncome:1,qty:0,managerCost:120,hasManager:false,multiplier:1,icon:"🍋"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🏪 Corner Store",baseCost:180,baseIncome:12,qty:0,managerCost:1800,hasManager:false,multiplier:1,icon:"🏪"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🏭 Factory",baseCost:2200,baseIncome:140,qty:0,managerCost:22000,hasManager:false,multiplier:1,icon:"🏭"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"💻 Tech Startup",baseCost:25000,baseIncome:1600,qty:0,managerCost:250000,hasManager:false,multiplier:1,icon:"💻"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🏦 Bank",baseCost:300000,baseIncome:22000,qty:0,managerCost:3000000,hasManager:false,multiplier:1,icon:"🏦"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🍽️ Restaurant",baseCost:950000,baseIncome:70000,qty:0,managerCost:9000000,hasManager:false,multiplier:1,icon:"🍽️"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🏨 Hotel",baseCost:2500000,baseIncome:180000,qty:0,managerCost:20000000,hasManager:false,multiplier:1,icon:"🏨"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🛒 Supermarket",baseCost:7800000,baseIncome:550000,qty:0,managerCost:52000000,hasManager:false,multiplier:1,icon:"🛒"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"✈️ Airport",baseCost:20000000,baseIncome:1500000,qty:0,managerCost:150000000,hasManager:false,multiplier:1,icon:"✈️"},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"🚀 Spaceport",baseCost:200000000,baseIncome:12000000,qty:0,managerCost:900000000,hasManager:false,multiplier:1,icon:"🚀"}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const GROWTH=1.2;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let stocks=[</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"MegaCola",price:50,owned:0,boughtPrice:null,history:[50]},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"LemonTech",price:120,owned:0,boughtPrice:null,history:[120]},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{name:"BankCorp",price:300,owned:0,boughtPrice:null,history:[300]}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showSection(id){document.querySelectorAll(".section").forEach(s=&gt;s.classList.remove("active"));document.getElementById(id).classList.add("active");updateDisplay();}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateDisplay(){document.getElementById("cash").innerText=Math.floor(cash);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("coins").innerText=prestigeCoins;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("clickValue").innerText=clickValue;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("clickUpgradeCost").innerText=clickUpgradeCost;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById("prestigeBonus").innerText=prestigePercent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const container=document.getElementById("businesses");container.innerHTML="";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const buyAmount=parseInt(document.getElementById("buyAmount").value);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>businesses.forEach((b,i)=&gt;{let icons="";for(let k=0;k&lt;Math.min(b.qty,5);k++)icons+=`&lt;span&gt;${b.icon}&lt;/span&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let income=Math.floor(b.baseIncome*b.qty*prestigeMultiplier*globalIncomeMultiplier()*b.multiplier*(boostActive&amp;&amp;boostType==="2xBusiness"?2:1));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let cost=calcTotalCost(b,buyAmount);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>container.innerHTML+=`&lt;div class='card'&gt;&lt;h3&gt;${b.name}&lt;/h3&gt;&lt;p&gt;Owned:${b.qty}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Income:$${income}/sec&lt;/p&gt;&lt;button onclick='buyBusiness(${i})' ${cash&lt;cost?"disabled":""}&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Buy ${buyAmount} for $${cost}&lt;/button&gt;&lt;div class='icons'&gt;${icons}&lt;/div&gt;&lt;/div&gt;`;});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const mgr=document.getElementById("managersList");mgr.innerHTML="";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>businesses.forEach((b,i)=&gt;{mgr.innerHTML+=`&lt;div class='card'&gt;&lt;p&gt;Hire Manager for ${b.name} ($${b.managerCost})&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick='hireManager(${i})' ${cash&lt;b.managerCost||b.hasManager?"disabled":""}&gt;${b.hasManager?"Hired ✅":"Hire"}&lt;/button&gt;&lt;/div&gt;`;});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const stockContainer=document.getElementById("stocksList");stockContainer.innerHTML="";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>stocks.forEach((s,i)=&gt;{stockContainer.innerHTML+=`&lt;div class='card'&gt;&lt;h3&gt;${s.name}&lt;/h3&gt;&lt;p&gt;Price:$${s.price}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Owned:${s.owned} ${s.owned&gt;0?`(Bought at $${s.boughtPrice})`:""}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick='buyStock(${i})' ${cash&lt;s.price?"disabled":""}&gt;Buy&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick='sellStock(${i})' ${s.owned&lt;=0?"disabled":""}&gt;Sell&lt;/button&gt;&lt;canvas id='chart-${i}' width='380' height='90'&gt;&lt;/canvas&gt;&lt;/div&gt;`;drawChart(i);});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>renderShop();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let prog=Math.min(100,(cash/10000)*100);const bar=document.getElementById("prestigeBar");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>bar.style.width=prog+"%";bar.textContent=Math.floor(prog)+"% to next bonus";}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function clickDollar(){cash+=(boostActive&amp;&amp;boostType==="10xMoney"?clickValue*10:clickValue);updateDisplay();}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function upgradeClick(){if(cash&gt;=clickUpgradeCost){cash-=clickUpgradeCost;clickValue++;clickUpgradeCost=Math.floor(clickUpgradeCost*2);updateDisplay();}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calcTotalCost(b,amt){let total=0;for(let i=0;i&lt;amt;i++){total+=Math.floor(b.baseCost*Math.pow(GROWTH,b.qty+i)*costDiscountFactor());}return total;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function buyBusiness(i){const amt=parseInt(document.getElementById("buyAmount").value);let b=businesses[i];let cost=calcTotalCost(b,amt);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(cash&gt;=cost){cash-=cost;b.qty+=amt;updateDisplay();}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function hireManager(i){let b=businesses[i];if(!b.hasManager&amp;&amp;cash&gt;=b.managerCost){cash-=b.managerCost;b.hasManager=true;b.multiplier=2;updateDisplay();}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function prestige(){let bonus=Math.floor(cash/10000);if(bonus&lt;=0){alert("Need $10,000+");return;}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>prestigePercent+=bonus;prestigeCoins+=bonus;recomputePrestigeMultiplier();cash=0;clickValue=1+shop.clickBonusLevel;clickUpgradeCost=20;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>businesses.forEach(b=&gt;{b.qty=0;b.hasManager=false;b.multiplier=1;});stocks.forEach(s=&gt;{s.owned=0;s.boughtPrice=null;s.history=[s.price];});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert("Prestiged! +"+bonus+"% &amp; 🪙"+bonus);saveGame();updateDisplay();}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setInterval(()=&gt;{let income=0;businesses.forEach(b=&gt;{let earn=b.baseIncome*b.qty*prestigeMultiplier*globalIncomeMultiplier()*b.multiplier;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(boostActive&amp;&amp;boostType==="2xBusiness")earn*=2;income+=earn;});cash+=income;updateDisplay();},1000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setInterval(()=&gt;{stocks.forEach(s=&gt;{let change=Math.floor(Math.random()*21)-10;if(shop.stockDrift)change++;s.price=Math.max(5,s.price+change);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>s.history.push(s.price);if(s.history.length&gt;10)s.history.shift();});updateDisplay();},7000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function buyStock(i){if(cash&gt;=stocks[i].price){cash-=stocks[i].price;stocks[i].owned++;stocks[i].boughtPrice=stocks[i].price;updateDisplay();}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function sellStock(i){if(stocks[i].owned&gt;0){cash+=stocks[i].price;stocks[i].owned--;if(stocks[i].owned===0)s.boughtPrice=null;updateDisplay();}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function drawChart(i){let c=document.getElementById("chart-"+i);if(!c)return;let ctx=c.getContext("2d");ctx.clearRect(0,0,c.width,c.height);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let h=stocks[i].history,max=Math.max(...h),min=Math.min(...h),range=max-min||1;ctx.beginPath();ctx.lineWidth=2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>h.forEach((v,j)=&gt;{let x=(j/(h.length-1))*c.width,y=c.height-((v-min)/range)*c.height;if(j===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.strokeStyle="blue";ctx.stroke();}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>setInterval(()=&gt;{let d=document.getElementById("boostDollar");let x=Math.random()*(window.innerWidth-100);let y=Math.random()*(window.innerHeight-140)+80;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>d.style.left=x+"px";d.style.top=y+"px";d.style.display="block";setTimeout(()=&gt;{d.style.display="none";},8000);},480000);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function activateBoost(){let d=document.getElementById("boostDollar");d.style.display="none";if(boostActive)return;boostActive=true;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>boostType=Math.random()&lt;0.5?"10xMoney":"2xBusiness";let dur=boostType==="10xMoney"?10000:30000;boostEndTime=Date.now()+dur;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let s=document.getElementById("boostStatus");s.style.display="block";if(boostInterval)clearInterval(boostInterval);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>boostInterval=setInterval(()=&gt;{let rem=Math.max(0,Math.floor((boostEndTime-Date.now())/1000));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if(rem&lt;=0){boostActive=false;boostType=null;s.style.display="none";clearInterval(boostInterval);}else{</p>
+<p class="p1"><span class="Apple-converted-space">          </span>s.textContent=(boostType==="10xMoney"?"⚡ 10x Clicks: ":"🔥 2x Biz: ")+rem+"s";}},500);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const shopDefs=[</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{key:"globalIncomeLevel",name:"Global Income +10%",desc:"Permanent +10% income",type:"repeat",costFn:(l)=&gt;Math.floor(3*Math.pow(1.6,l)),apply:()=&gt;{}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{key:"clickBonusLevel",name:"Click Power +1",desc:"Permanent +1 click base",type:"repeat",costFn:(l)=&gt;Math.floor(2*Math.pow(1.5,l)),apply:()=&gt;{clickValue=1+shop.clickBonusLevel;}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{key:"costReductionLevel",name:"Biz Cost -5%",desc:"Permanent -5% cost",type:"repeat",costFn:(l)=&gt;Math.floor(4*Math.pow(1.7,l)),apply:()=&gt;{}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{key:"stockDrift",name:"Stock Drift Up",desc:"Stocks bias upward",type:"one",cost:5,apply:()=&gt;{}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderShop(){let w=document.getElementById("shopList");w.innerHTML="";shopDefs.forEach(def=&gt;{let owned=shop[def.key]||0,costLabel,dis=false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(def.type==="repeat"){let p=def.costFn(owned);costLabel=`Cost:🪙${p} Owned:${owned}`;if(prestigeCoins&lt;p)dis=true;}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>else{costLabel=shop[def.key]?"Owned ✅":`Cost:🪙${def.cost}`;if(shop[def.key]||prestigeCoins&lt;def.cost)dis=true;}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>w.innerHTML+=`&lt;div class='card shop-item'&gt;&lt;h4&gt;${def.name}&lt;/h4&gt;&lt;p class='tiny'&gt;${def.desc}&lt;/p&gt;&lt;p&gt;${costLabel}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button ${dis?"disabled":""} onclick="buyShopUpgrade('${def.key}')"&gt;Buy&lt;/button&gt;&lt;/div&gt;`;});}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function buyShop</p>
+</body>
+</html>
